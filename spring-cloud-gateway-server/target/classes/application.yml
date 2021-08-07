@@ -1,0 +1,29 @@
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+server:
+  port: 8765
+spring:
+  application:
+    name: spring-cloud-gateway-server
+
+# property based configuration for routes
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: currency-converter-service
+#        uri: http://localhost:8100
+#        predicates:
+#        - Path=/currency-converter/**
+#      - id: employeeModule
+#        uri: http://localhost:8000
+#        predicates:
+#        - Path=/currency-exchange/**
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
